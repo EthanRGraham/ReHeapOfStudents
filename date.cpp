@@ -29,7 +29,7 @@ void Date::init(std::string dateString){
 	ss.clear();
 	ss.str("");
 
-	ss << sDay << "  " << sMonth << " " << ssYear;
+	ss << sDay << "  " << sMonth << " " << sYear;
 	ss >> day >> month >> year;
 } //end init
 
