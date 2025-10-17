@@ -13,7 +13,7 @@ Student::Student(){
 	birthDate = new Date();
 	gradDate = new Date();
 	address = new Address();
-	credHours = 0;
+	creditHours = 0;
 } //end constructor
 
 Student::Student(std::string studentString){
@@ -34,10 +34,11 @@ void Student::init(std::string studentString){
 
 	std::string street;
 	std::string city;
+	std::string state;
 	std::string zip;
 	std::string sBirthDate;
 	std::string sGradDate;
-	std::string sCredHours;
+	std::string sCredHour;
 
 	getline(ss, firstName, ',');
 	getline(ss, lastName, ',');
@@ -54,9 +55,10 @@ void Student::init(std::string studentString){
 	gradDate->init(sGradDate);
 
 	ss.clear();
-	ss.str(sCredHours);
-	ss >> credHours;
+	ss.str(sCredHour);
+	ss >> sCredHour;
 
+}//end init
 void Student::printStudent(){
 	std::cout << firstName << " " << lastName << std::endl;
 	address->printAddress();
@@ -64,7 +66,7 @@ void Student::printStudent(){
 	birthDate->printDate();
 	std::cout << "Grad: ";
 	gradDate->printDate();
-	std::cout << "Credits: " << credHours << std::endl;
+	std::cout << "Credits: " << creditHours << std::endl;
 	std::cout << "__________________________________________";
 	std::cout << std::endl;
 }//end printStudent
@@ -87,7 +89,7 @@ std::string Student::getFirstName(){
  //
 
 int Student::getCredHours(){
-	return credHours;
+	return creditHours;
 }// end getCredHours
 
 

@@ -3,65 +3,37 @@
 #include <sstream>
 #include "date.h"
 
-
-Date::Date(){
-	dateString = " ";
-	month = " ";
-	day = " ";
-	years = " ";
-
+Date::Date() {
+    dateString = "";
+    month = "";
+    day = "";
+    year = "";
 }
 
-void Date::init(std::string dateString){
-	Date::dateString = dateString;
-	std::stringstream ss;
-	std::string sMonth;
-	std::string sDay;
-	std::string sYear;
-	
-	ss.clear();
-	ss.str(dateString);
+void Date::init(std::string dateString) {
+    this->dateString = dateString;
+    std::stringstream ss(dateString);
+    getline(ss, month, '/');
+    getline(ss, day, '/');
+    getline(ss, year);
+}
 
-	getline(ss, sMonth, '/'); //delimiter '/'//
-	getline(ss, sDay, '/');
-	getline(ss, sYear);
+void Date::printDate() {
+    std::string monthName;
 
-	ss.clear();
-	ss.str("");
+    if (month == "01") monthName = "January";
+    else if (month == "02") monthName = "February";
+    else if (month == "03") monthName = "March";
+    else if (month == "04") monthName = "April";
+    else if (month == "05") monthName = "May";
+    else if (month == "06") monthName = "June";
+    else if (month == "07") monthName = "July";
+    else if (month == "08") monthName = "August";
+    else if (month == "09") monthName = "September";
+    else if (month == "10") monthName = "October";
+    else if (month == "11") monthName = "November";
+    else if (month == "12") monthName = "December";
+    else monthName = "Invalid Month";
 
-	ss << sDay << "  " << sMonth << " " << sYear;
-	ss >> day >> month >> year;
-} //end init
-
-
-void Date::printDate(){
-	if (month == "01"){
-		month = "January";
-	} else if (month == "02"){
-		month = "February";
-	} else if (month == "03"){
-       		month = "March";
-    	} else if (month == "04"){
-        	month = "April";
-    	} else if (month == "05"){
-        	month = "May";
-    	} else if (month == "06"){
-        	month = "June";
-    	} else if (month == "07"){
-        	month = "July";
-    	} else if (month == "08"){
-        	month = "August";
-    	} else if (month == "09"){
-        	month = "September";
-    	} else if (month == "10"){
-        	month = "October";
-    	} else if (month == "11"){
-        	month = "November";
-    	} else if (month == "12"){
-        	month = "December";
-    	} else {
-        	month = "Invalid Month";
-	} //end if
-	  std::cout << month << " " << day << ", " << year <<std::endl;
-} //end printDate	
-
+    std::cout << monthName << " " << day << ", " << year << std::endl;
+}

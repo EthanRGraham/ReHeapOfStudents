@@ -2,16 +2,17 @@
 #define DATE_H_EXISTS
 #include <string>
 
-class Date {
+class Date{
 	protected:
 	std::string dateString;
-	std::int month;
-	std::int day;
-	std::int year;
+	std::string month;
+	std::string day;
+	std::string  year;
 
 	public:
 	Date();
 	void init(std::string dateString);
 	void printDate();
-} // end class def
+}; // end class def
 
+#endif
