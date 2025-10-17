@@ -1,6 +1,6 @@
 #ifndef DATE_H_EXISTS
 #define DATE_H_EXISTS
-#include <strings>
+#include <string>
 
 class Date {
 	protected:
